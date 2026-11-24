@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+skinparam monochrome true
+
+actor "Atendente / Bibliotecário" as Atendente
+
+rectangle "Sistema Biblioteca Cultural" {
+    usecase "Cadastrar material\n(Livro, Mangá ou HQ)" as UC1
+    usecase "Consultar acervo" as UC2
+    usecase "Pesquisar material" as UC3
+    usecase "Atualizar material" as UC4
+    usecase "Remover material" as UC5
+    usecase "Calcular prazo de devolução" as UC6
+}
+
+Atendente --> UC1
+Atendente --> UC2
+Atendente --> UC3
+Atendente --> UC4
+Atendente --> UC5
+Atendente --> UC6
+
+@enduml
