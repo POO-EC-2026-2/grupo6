@@ -1,0 +1,23 @@
+@startuml
+skinparam monochrome true
+
+actor "Atendente" as Usuario
+participant ":BibliotecaView" as View
+participant ":BibliotecaController" as Controller
+participant "item : Livro / MangaHQs" as Item
+participant ":Acervo" as Acervo
+
+Usuario -> View : Preenche formulário e clica em Cadastrar
+View -> Controller : cadastrarLivro(...) / cadastrarMangaHQ(...)
+
+create Item
+Controller -> Item : new Livro(...) / new MangaHQs(...)
+
+Controller -> Acervo : adicionarItem(item)
+Acervo -> Acervo : itens.add(item)
+Acervo --> Controller : item adicionado
+
+Controller --> View : cadastro concluído
+View --> Usuario : Atualiza tabela e exibe confirmação
+
+@enduml
